@@ -1,0 +1,4 @@
+- husky: https://typicode.github.io/husky/get-started.html
+- lint-staged: https://github.com/lint-staged/lint-staged
+- commitlint: https://commitlint.js.org/
+- prettier: https://prettier.io/docs/en/install.html
