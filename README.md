@@ -2,3 +2,4 @@
 - lint-staged: https://github.com/lint-staged/lint-staged
 - commitlint: https://commitlint.js.org/
 - prettier: https://prettier.io/docs/en/install.html
+- turborepo: https://turbo.build/repo/docs/getting-started

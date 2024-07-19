@@ -1,31 +1,4 @@
 {
-  // Formatters
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[properties][ignore][shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[env]": {
-    "editor.defaultFormatter": "IronGeek.vscode-env"
-  },
-  "[dockercompose][dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
-
-  // File-extension association
-  "files.associations": {
-    ".env": "env",
-    "*.env.*": "env"
-  },
-
-  // External customization
-  "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "workbench.iconTheme": "material-icon-theme",
-  "material-icon-theme.activeIconPack": "nest",
-
-  // Vscode customization
-  "explorer.compactFolders": false,
-  "explorer.confirmDelete": false,
-
   // Formatting settings
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
@@ -38,6 +11,34 @@
   "files.encoding": "utf8", // No prettier equivalent
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
-  "editor.wordWrapColumn": 100,
-  "files.trimTrailingWhitespace": true // No prettier equivalent
+  "editor.wordWrapColumn": 80,
+  "files.trimTrailingWhitespace": true, // No prettier equivalent
+
+  // Formatters
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[env]": {
+    "editor.defaultFormatter": "IronGeek.vscode-env"
+  },
+  "[properties][ignore][shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[dockercompose][dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+
+  // File-extension association
+  "files.associations": {
+    ".env": "env",
+    "*.env.*": "env"
+  },
+
+  // Vscode customization
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+
+  // Extensions customization
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.activeIconPack": "nest",
+  // Last line before new setting
+  "terminal.integrated.defaultProfile.windows": "Git Bash"
 }
