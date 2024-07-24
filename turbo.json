@@ -1,10 +1,9 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
-    "start:dev": {
+    "dev": {
       "cache": false,
       "persistent": true
-    },
-    "lint": {}
+    }
   }
 }
