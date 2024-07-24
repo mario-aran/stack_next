@@ -1,9 +1,8 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
-    "dev": {
-      "cache": false,
-      "persistent": true
-    }
+    "check-types": { "dependsOn": ["^check-types"], "cache": false },
+    "lint": { "dependsOn": ["^lint"], "cache": false },
+    "dev": { "cache": false, "persistent": true }
   }
 }
