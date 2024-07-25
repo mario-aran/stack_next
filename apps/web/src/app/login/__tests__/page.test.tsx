@@ -1,5 +1,6 @@
-import Page from '@/app/login/page';
 import { render, screen } from '@testing-library/react';
+
+import Page from '@/app/login/page';
 
 describe('Page', () => {
   it('renders a heading', () => {
