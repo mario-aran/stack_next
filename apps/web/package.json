@@ -12,6 +12,11 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@emotion/cache": "^11.13.0",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^5.16.4",
+    "@mui/material-nextjs": "^5.16.4",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
