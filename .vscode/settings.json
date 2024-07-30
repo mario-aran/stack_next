@@ -34,7 +34,7 @@
   // Vscode customization
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
-
+  
   // Extensions customization
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.activeIconPack": "nest",

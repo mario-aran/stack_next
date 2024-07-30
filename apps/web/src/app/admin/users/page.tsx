@@ -1,29 +1,26 @@
 'use client';
 
-import { Box, Button } from '@mui/material';
-import { useState } from 'react';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
-import { BasicTable } from '@/components/tables/BasicTable';
-import { DataTable } from '@/components/tables/DataTable';
+import { BasicTable } from '@/components/tables/basic-table';
 
 export default function Page() {
-  const [tableMode, setTableMode] = useState(true);
-
-  const handleTableChange = () => {
-    setTableMode((prev) => !prev);
-  };
-
   return (
-    <main>
-      <Box component="section" m={5}>
-        <Button variant="contained" onClick={handleTableChange}>
-          Change table
-        </Button>
+    <Box sx={{ width: '90%', mx: 'auto' }} component="main">
+      <Box component="section">
+        <Typography
+          sx={{ m: 3, fontWeight: 'medium' }}
+          component="h1"
+          variant="h4"
+        >
+          Usuarios
+        </Typography>
       </Box>
 
-      <Box component="section">
-        {tableMode ? <BasicTable /> : <DataTable />}
+      <Box sx={{ mb: 3 }} component="section">
+        <BasicTable />
       </Box>
-    </main>
+    </Box>
   );
 }
