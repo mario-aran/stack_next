@@ -1,9 +1,7 @@
-'use client';
-
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import { BasicTable } from '@/components/tables/basic-table';
+import { BasicTable } from '@/components/tables/BasicTable';
 
 export default function Page() {
   return (
