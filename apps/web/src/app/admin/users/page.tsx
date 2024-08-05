@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import { BasicTable } from '@/components/tables/BasicTable';
+import { UsersMaster } from '@/features/users/components';
 
 export default function Page() {
   return (
@@ -17,7 +17,7 @@ export default function Page() {
       </Box>
 
       <Box sx={{ mb: 3 }} component="section">
-        <BasicTable />
+        <UsersMaster />
       </Box>
     </Box>
   );
