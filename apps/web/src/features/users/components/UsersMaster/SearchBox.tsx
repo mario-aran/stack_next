@@ -10,8 +10,7 @@ import { FormEvent, useRef } from 'react';
 import { SearchBoxPropsType } from '@/features/users/types';
 
 // Methods
-const _normalizeValue = (value: string) =>
-  value.toLowerCase().trim().replace(/\s+/g, ' ');
+const _normalizeInput = (value: string) => value.trim().replace(/\s+/g, ' ');
 
 export const SearchBox = ({ filterDataBySearch }: SearchBoxPropsType) => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -26,20 +25,31 @@ export const SearchBox = ({ filterDataBySearch }: SearchBoxPropsType) => {
   const handleSubmitSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevent submit action
 
-    // Apply filters
+    // Get inputs
     const { current: currentId } = searchIdInputRef;
     const { current: currentWords } = searchWordsInputRef;
-    let filterId = currentId ? _normalizeValue(currentId.value) : '';
-    let filterWords = currentWords ? _normalizeValue(currentWords.value) : '';
-    filterDataBySearch({ filterId, filterWords });
+    let filterId = '';
+    let filterWords = '';
 
-    // Reset form
-    if (!filterId && !filterWords) formRef.current?.reset();
+    // Normalize filter id
+    if (currentId) {
+      currentId.value = _normalizeInput(currentId.value);
+      filterId = currentId.value;
+    }
+
+    // Normalize filter words
+    if (currentWords) {
+      currentWords.value = _normalizeInput(currentWords.value);
+      filterWords = currentWords.value;
+    }
+
+    // Apply filters or reset search
+    filterDataBySearch({ filterId, filterWords });
   };
 
   return (
     <Paper
-      sx={{ display: 'flex', gap: 1, p: 3 }}
+      sx={{ display: 'flex', gap: 1, p: 2 }}
       component="form"
       ref={formRef}
       onSubmit={handleSubmitSearch}
@@ -48,7 +58,7 @@ export const SearchBox = ({ filterDataBySearch }: SearchBoxPropsType) => {
         name="search_id"
         label="Id"
         variant="outlined"
-        inputProps={{ maxLength: 50 }}
+        inputProps={{ maxLength: 15 }}
         inputRef={searchIdInputRef}
       />
 

@@ -6,17 +6,13 @@ import { UsersMaster } from '@/features/users/components';
 export default function Page() {
   return (
     <Box sx={{ width: '90%', mx: 'auto' }} component="main">
-      <Box component="section">
-        <Typography
-          sx={{ m: 3, fontWeight: 'medium' }}
-          component="h1"
-          variant="h4"
-        >
+      <Box sx={{ my: 2 }} component="section">
+        <Typography sx={{ fontWeight: 'medium' }} component="h1" variant="h4">
           Usuarios
         </Typography>
       </Box>
 
-      <Box sx={{ mb: 3 }} component="section">
+      <Box sx={{ mb: 2 }} component="section">
         <UsersMaster />
       </Box>
     </Box>

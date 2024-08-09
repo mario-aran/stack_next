@@ -1,6 +1,6 @@
 'use client';
 
-import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import { useState } from 'react';
 
 import { usersData } from '@/features/users/data';
@@ -28,7 +28,6 @@ export const UsersMaster = () => {
   const [page, setPage] = useState(DEFAULT_PAGE);
   const [rowsPerPage, setRowsPerPage] = useState(DEFAULT_ROWS_PER_PAGE);
   const [dataState, setDataState] = useState(initialDataStateValues);
-
   const { fullData, filteredData } = dataState;
 
   const filterDataByPage = ({
@@ -66,15 +65,15 @@ export const UsersMaster = () => {
     filterId,
     filterWords,
   }: FilterDataBySearchPropsType) => {
-    // Reset data
+    // Reset full data
     let newFullData = usersData;
 
-    // Filter data by id
+    // Filter full data by id
     if (filterId) {
       newFullData = newFullData.filter(({ id }) => id === +filterId);
     }
 
-    // Filter data by words
+    // Filter full data by words
     if (filterWords) {
       const filterWordsLower = filterWords.toLowerCase();
       newFullData = newFullData.filter(({ email, name, profile }) =>
@@ -84,11 +83,13 @@ export const UsersMaster = () => {
       );
     }
 
+    // Get filtered data by page
+    const newFilteredData = filterDataByPage({
+      newFullData,
+      newPage: DEFAULT_PAGE,
+    });
+
     // Set new full and filtered data
-    const newFilteredData =
-      filterId || filterWords
-        ? filterDataByPage({ newFullData, newPage: DEFAULT_PAGE })
-        : initialDataStateValues.filteredData;
     setDataState({ fullData: newFullData, filteredData: newFilteredData });
   };
 
@@ -102,10 +103,10 @@ export const UsersMaster = () => {
   };
 
   return (
-    <Box sx={{ minWidth: 650 }}>
+    <Stack sx={{ minWidth: 650 }} spacing={1}>
       <SearchBox filterDataBySearch={filterDataBySearch} />
       <UsersTable filteredData={filteredData} />
       <Pagination {...paginationProps} />
-    </Box>
+    </Stack>
   );
 };

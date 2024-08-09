@@ -12,7 +12,7 @@ import { UsersTablePropsType } from '@/features/users/types';
 
 export const UsersTable = ({ filteredData }: UsersTablePropsType) => {
   return (
-    <TableContainer sx={{ my: 2 }} component={Paper}>
+    <TableContainer component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
