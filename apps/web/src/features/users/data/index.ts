@@ -1,1 +1,1 @@
-export * from './data';
+export * from './users.data';

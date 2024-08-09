@@ -1,1 +1,1 @@
-export * from './users-context.type';
+export * from './users-masters.type';

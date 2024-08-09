@@ -7,13 +7,10 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { useContext } from 'react';
 
-import { UsersContext } from '@/features/users/Users.context';
+import { UsersTablePropsType } from '@/features/users/types';
 
-export const UsersTable = () => {
-  const { filteredData } = useContext(UsersContext);
-
+export const UsersTable = ({ filteredData }: UsersTablePropsType) => {
   return (
     <TableContainer sx={{ my: 2 }} component={Paper}>
       <Table>
