@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import { UsersMaster } from '@/features/users-master/components';
+import { UsersMasterContext } from '@/features/users-master/components';
 
 export default function Page() {
   return (
@@ -13,7 +13,7 @@ export default function Page() {
       </Box>
 
       <Box sx={{ mb: 2 }} component="section">
-        <UsersMaster />
+        <UsersMasterContext />
       </Box>
     </Box>
   );

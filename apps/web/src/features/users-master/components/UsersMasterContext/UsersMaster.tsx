@@ -1,6 +1,6 @@
 import Stack from '@mui/material/Stack';
 
-import { UsersMasterProvider } from '@/features/users/context';
+import { UsersMasterProvider } from '@/features/users-master/context';
 
 import { Pagination } from './Pagination';
 import { SearchBox } from './SearchBox';

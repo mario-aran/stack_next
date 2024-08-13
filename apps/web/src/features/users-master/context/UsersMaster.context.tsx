@@ -2,7 +2,7 @@
 
 import { createContext, PropsWithChildren, useReducer } from 'react';
 
-import { usersData } from '@/features/users/data';
+import { usersData } from '@/features/users-master/data';
 
 // Types
 interface StateType {
@@ -37,7 +37,7 @@ interface FilterDataBySearchPropsType {
   filterWords: string;
 }
 
-interface ContextUpdateValuesType {
+interface UpdateContextValuesType {
   changePage: (page: number) => void;
   changeRowsPerPage: (rowsPerPage: number) => void;
   filterDataBySearch: (props: FilterDataBySearchPropsType) => void;
@@ -62,22 +62,22 @@ const initialStateValues: StateType = {
   filteredData: usersData.slice(0, DEFAULT_ROWS_PER_PAGE),
 };
 
-const initialContextValues = {
+const initialReadContextValues = {
   ...initialStateValues,
   rowsPerPageOptions: ROWS_PER_PAGE_OPTIONS,
   fullDataLength: usersData.length,
 };
 
-const initialContextUpdateValues: ContextUpdateValuesType = {
+const initialUpdateContextValues: UpdateContextValuesType = {
   changePage: () => {},
   changeRowsPerPage: () => {},
   filterDataBySearch: () => {},
 };
 
 // Context
-export const UsersMasterContext = createContext(initialContextValues);
-export const UsersMasterUpdateContext = createContext(
-  initialContextUpdateValues,
+export const ReadUsersMasterContext = createContext(initialReadContextValues);
+export const UpdateUsersMasterContext = createContext(
+  initialUpdateContextValues,
 );
 
 // Reducer
@@ -149,7 +149,7 @@ export const UsersMasterProvider = ({ children }: PropsWithChildren) => {
     dispatch({ type: ACTIONS.SET_DATA, fullData });
   };
 
-  const ContextValues = {
+  const ReadContextValues = {
     page: state.page,
     rowsPerPage: state.rowsPerPage,
     rowsPerPageOptions: ROWS_PER_PAGE_OPTIONS,
@@ -158,17 +158,17 @@ export const UsersMasterProvider = ({ children }: PropsWithChildren) => {
     filteredData: state.filteredData,
   };
 
-  const ContextUpdateValues = {
+  const UpdateContextValues = {
     changePage,
     changeRowsPerPage,
     filterDataBySearch,
   };
 
   return (
-    <UsersMasterContext.Provider value={ContextValues}>
-      <UsersMasterUpdateContext.Provider value={ContextUpdateValues}>
+    <ReadUsersMasterContext.Provider value={ReadContextValues}>
+      <UpdateUsersMasterContext.Provider value={UpdateContextValues}>
         {children}
-      </UsersMasterUpdateContext.Provider>
-    </UsersMasterContext.Provider>
+      </UpdateUsersMasterContext.Provider>
+    </ReadUsersMasterContext.Provider>
   );
 };
