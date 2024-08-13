@@ -5,14 +5,15 @@ import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
-import { FormEvent, useRef } from 'react';
+import { FormEvent, useContext, useRef } from 'react';
 
-import { SearchBoxPropsType } from '@/features/users/types';
+import { UsersMasterUpdateContext } from '@/features/users/context';
 
 // Methods
 const _normalizeInput = (value: string) => value.trim().replace(/\s+/g, ' ');
 
-export const SearchBox = ({ filterDataBySearch }: SearchBoxPropsType) => {
+export const SearchBox = () => {
+  const { filterDataBySearch } = useContext(UsersMasterUpdateContext);
   const formRef = useRef<HTMLFormElement>(null);
   const searchIdInputRef = useRef<HTMLInputElement>(null);
   const searchWordsInputRef = useRef<HTMLInputElement>(null);
@@ -26,8 +27,9 @@ export const SearchBox = ({ filterDataBySearch }: SearchBoxPropsType) => {
     event.preventDefault(); // Prevent submit action
 
     // Get inputs
-    const { current: currentId } = searchIdInputRef;
-    const { current: currentWords } = searchWordsInputRef;
+    const currentId = searchIdInputRef.current;
+    const currentWords = searchWordsInputRef.current;
+
     let filterId = '';
     let filterWords = '';
 

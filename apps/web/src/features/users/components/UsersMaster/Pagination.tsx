@@ -2,18 +2,20 @@
 
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useContext } from 'react';
 
-import { PaginationPropsType } from '@/features/users/types';
+import {
+  UsersMasterContext,
+  UsersMasterUpdateContext,
+} from '@/features/users/context';
 
-export const Pagination = ({
-  page,
-  rowsPerPage,
-  rowsPerPageOptions,
-  fullDataLength,
-  changePage,
-  changeRowsPerPage,
-}: PaginationPropsType) => {
+export const Pagination = () => {
+  const { page, rowsPerPage, rowsPerPageOptions, fullDataLength } =
+    useContext(UsersMasterContext);
+  const { changePage, changeRowsPerPage } = useContext(
+    UsersMasterUpdateContext,
+  );
+
   const handleChangePage = (event: unknown, newPage: number) =>
     changePage(newPage);
 
