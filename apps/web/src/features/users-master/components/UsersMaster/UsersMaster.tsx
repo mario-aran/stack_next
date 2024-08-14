@@ -1,7 +1,7 @@
 'use client';
 
 import Stack from '@mui/material/Stack';
-import { useReducer } from 'react';
+import { useCallback, useReducer } from 'react';
 
 import { ACTIONS } from '@/features/users-master/constants';
 import { usersData } from '@/features/users-master/data';
@@ -66,35 +66,42 @@ const reducer = (state: StateType, action: ActionType) => {
 };
 
 export const UsersMaster = () => {
+  console.log('UsersMaster render');
+
   const [state, dispatch] = useReducer(reducer, initialStateValues);
 
-  const changePage = (page: number) =>
-    dispatch({ type: ACTIONS.SET_PAGE, page });
+  const changePage = useCallback(
+    (page: number) => dispatch({ type: ACTIONS.SET_PAGE, page }),
+    [],
+  );
 
-  const changeRowsPerPage = (rowsPerPage: number) =>
-    dispatch({ type: ACTIONS.SET_ROWS_PER_PAGE, rowsPerPage });
+  const changeRowsPerPage = useCallback(
+    (rowsPerPage: number) =>
+      dispatch({ type: ACTIONS.SET_ROWS_PER_PAGE, rowsPerPage }),
+    [],
+  );
 
-  const filterDataBySearch = ({
-    filterId,
-    filterWords,
-  }: FilterDataBySearchPropsType) => {
-    let fullData = usersData;
+  const filterDataBySearch = useCallback(
+    ({ filterId, filterWords }: FilterDataBySearchPropsType) => {
+      let fullData = usersData;
 
-    if (filterId) {
-      fullData = fullData.filter(({ id }) => id === +filterId);
-    }
+      if (filterId) {
+        fullData = fullData.filter(({ id }) => id === +filterId);
+      }
 
-    if (filterWords) {
-      const filterWordsLower = filterWords.toLowerCase();
-      fullData = fullData.filter(({ email, name, profile }) =>
-        [email, name, profile].some((el) =>
-          el.toLowerCase().includes(filterWordsLower),
-        ),
-      );
-    }
+      if (filterWords) {
+        const filterWordsLower = filterWords.toLowerCase();
+        fullData = fullData.filter(({ email, name, profile }) =>
+          [email, name, profile].some((el) =>
+            el.toLowerCase().includes(filterWordsLower),
+          ),
+        );
+      }
 
-    dispatch({ type: ACTIONS.SET_DATA, fullData });
-  };
+      dispatch({ type: ACTIONS.SET_DATA, fullData });
+    },
+    [],
+  );
 
   const paginationProps = {
     page: state.page,

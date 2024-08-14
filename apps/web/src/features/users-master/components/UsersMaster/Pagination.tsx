@@ -1,10 +1,10 @@
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, memo } from 'react';
 
 import { PaginationPropsType } from '@/features/users-master/types';
 
-export const Pagination = ({
+const PaginationComponent = ({
   page,
   rowsPerPage,
   rowsPerPageOptions,
@@ -12,6 +12,8 @@ export const Pagination = ({
   changePage,
   changeRowsPerPage,
 }: PaginationPropsType) => {
+  console.log('Pagination render');
+
   const handleChangePage = (event: unknown, newPage: number) =>
     changePage(newPage);
 
@@ -34,3 +36,5 @@ export const Pagination = ({
     </Paper>
   );
 };
+
+export const Pagination = memo(PaginationComponent);

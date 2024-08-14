@@ -9,6 +9,8 @@ import TableRow from '@mui/material/TableRow';
 import { UsersTablePropsType } from '@/features/users-master/types';
 
 export const UsersTable = ({ filteredData }: UsersTablePropsType) => {
+  console.log('UsersTable render');
+
   return (
     <TableContainer component={Paper}>
       <Table>
