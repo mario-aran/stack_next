@@ -1,9 +1,9 @@
-import { Sample } from '@/features/sample/Sample';
+import { Example } from '@/features/example/Example';
 
 export default function Page() {
   return (
     <main>
-      <Sample />
+      <Example />
     </main>
   );
 }

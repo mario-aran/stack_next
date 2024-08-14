@@ -1,5 +1,3 @@
-'use client';
-
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
 import { ChangeEvent } from 'react';
