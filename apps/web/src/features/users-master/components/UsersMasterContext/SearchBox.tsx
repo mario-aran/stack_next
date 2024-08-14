@@ -13,6 +13,8 @@ import { UpdateUsersMasterContext } from '@/features/users-master/context';
 const _normalizeInput = (value: string) => value.trim().replace(/\s+/g, ' ');
 
 export const SearchBox = () => {
+  console.log('SearchBox render');
+
   const { filterDataBySearch } = useContext(UpdateUsersMasterContext);
   const formRef = useRef<HTMLFormElement>(null);
   const searchIdInputRef = useRef<HTMLInputElement>(null);

@@ -7,6 +7,8 @@ import { SearchBox } from './SearchBox';
 import { UsersTable } from './UsersTable';
 
 export const UsersMaster = () => {
+  console.log('UsersMaster render');
+
   return (
     <UsersMasterProvider>
       <Stack sx={{ minWidth: 650 }} spacing={1}>

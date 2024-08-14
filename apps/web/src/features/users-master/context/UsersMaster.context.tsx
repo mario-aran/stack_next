@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, PropsWithChildren, useReducer } from 'react';
+import { createContext, PropsWithChildren, useMemo, useReducer } from 'react';
 
 import { usersData } from '@/features/users-master/data';
 
@@ -158,11 +158,14 @@ export const UsersMasterProvider = ({ children }: PropsWithChildren) => {
     filteredData: state.filteredData,
   };
 
-  const UpdateContextValues = {
-    changePage,
-    changeRowsPerPage,
-    filterDataBySearch,
-  };
+  const UpdateContextValues = useMemo(
+    () => ({
+      changePage,
+      changeRowsPerPage,
+      filterDataBySearch,
+    }),
+    [],
+  );
 
   return (
     <ReadUsersMasterContext.Provider value={ReadContextValues}>

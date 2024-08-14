@@ -10,6 +10,8 @@ import {
 } from '@/features/users-master/context';
 
 export const Pagination = () => {
+  console.log('Pagination render');
+
   const { page, rowsPerPage, rowsPerPageOptions, fullDataLength } = useContext(
     ReadUsersMasterContext,
   );
