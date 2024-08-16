@@ -1,12 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { sampleReducer } from '@/features/sample/sampleSlice';
+import { sampleReducer } from '@/features/sample/sample-redux';
+import { pokemonApi } from '@/services/pokemon';
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       sample: sampleReducer,
+      [pokemonApi.reducerPath]: pokemonApi.reducer,
     },
+    // Adding the api middleware enables caching, invalidation, polling, and other useful features of `rtk-query`.
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat([pokemonApi.middleware]),
   });
 };
 

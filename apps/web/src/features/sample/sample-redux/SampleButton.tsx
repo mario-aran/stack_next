@@ -4,7 +4,8 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
 import { useAppDispatch } from '@/config/redux/hooks';
-import { decrement, increment } from '@/features/sample/sampleSlice';
+
+import { decrement, increment } from './sampleSlice';
 
 export const SampleButton = () => {
   console.log('SampleButton render');
