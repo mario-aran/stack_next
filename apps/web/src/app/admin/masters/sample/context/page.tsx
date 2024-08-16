@@ -1,4 +1,4 @@
-import { Sample } from '@/features/sample/Sample';
+import { Sample } from '@/features/sample/sample-context';
 
 export default function Page() {
   return (

@@ -1,6 +1,7 @@
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import type { Metadata } from 'next';
 
+import { StoreProvider } from '@/config/redux/StoreProvider';
 import { MuiThemeProvider } from '@/config/themes';
 
 export const metadata: Metadata = {
@@ -10,16 +11,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body>
-        <AppRouterCacheProvider>
-          <MuiThemeProvider>{children}</MuiThemeProvider>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang="en">
+        <body>
+          <AppRouterCacheProvider>
+            <MuiThemeProvider>{children}</MuiThemeProvider>
+          </AppRouterCacheProvider>
+        </body>
+      </html>
+    </StoreProvider>
   );
 }

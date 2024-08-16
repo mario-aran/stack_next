@@ -1,5 +1,6 @@
 'use client';
 
+import Button from '@mui/material/Button';
 import { useContext } from 'react';
 
 import { UpdateSampleContext } from './Sample.context';
@@ -9,9 +10,11 @@ export const SampleButton = () => {
 
   const { setCounter } = useContext(UpdateSampleContext);
 
+  const handleClickIncrement = () => setCounter((prevState) => prevState + 1);
+
   return (
-    <button onClick={() => setCounter((prevState) => prevState + 1)}>
-      add
-    </button>
+    <Button variant="contained" onClick={handleClickIncrement}>
+      +
+    </Button>
   );
 };
