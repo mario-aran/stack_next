@@ -9,7 +9,7 @@ export const makeStore = () => {
       sample: sampleReducer,
       [pokemonApi.reducerPath]: pokemonApi.reducer,
     },
-    // Adding the api middleware for 'RTK query' features.
+    // Adding the api middleware for `rtk query` features.
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat([pokemonApi.middleware]),
   });

@@ -16,7 +16,7 @@ export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (storeRef.current) {
-      // Required for refetchOnFocus/refetchOnReconnect in 'RTK query'
+      // Required for refetchOnFocus/refetchOnReconnect in `rtk query`
       const unsubscribe = setupListeners(storeRef.current.dispatch);
 
       // Clean up the listener
