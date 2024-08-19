@@ -2,7 +2,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import type { Metadata } from 'next';
 
 import { StoreProvider } from '@/config/redux/StoreProvider';
-import { MuiThemeProvider } from '@/config/themes';
+import { MuiThemeProvider } from '@/config/themes/MuiThemeProvider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
