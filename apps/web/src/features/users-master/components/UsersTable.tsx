@@ -12,8 +12,6 @@ import { useContext } from 'react';
 import { ReadUsersMasterContext } from '@/features/users-master/context';
 
 export const UsersTable = () => {
-  console.log('UsersTable render');
-
   const { filteredData } = useContext(ReadUsersMasterContext);
 
   return (
