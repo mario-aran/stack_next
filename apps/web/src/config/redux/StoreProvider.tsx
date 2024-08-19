@@ -10,16 +10,16 @@ export const StoreProvider = ({ children }: { children: React.ReactNode }) => {
   const storeRef = useRef<AppStore>();
 
   if (!storeRef.current) {
-    // Create the store instance the first time this renders
+    // Create the store instance
     storeRef.current = makeStore();
   }
 
   useEffect(() => {
     if (storeRef.current) {
-      // Optional, but required for refetchOnFocus/refetchOnReconnect behaviors
+      // Required for refetchOnFocus/refetchOnReconnect in 'RTK query'
       const unsubscribe = setupListeners(storeRef.current.dispatch);
 
-      // Clean up the listener on component unmount
+      // Clean up the listener
       return () => unsubscribe();
     }
   }, []);
