@@ -10,7 +10,6 @@ export const UsersMaster = () => {
   return (
     <UsersMasterProvider>
       <Stack sx={{ minWidth: 650 }} spacing={1}>
-        <h4>Context</h4>
         <SearchBox />
         <UsersTable />
         <Pagination />
