@@ -3,20 +3,17 @@
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
-import { useAppDispatch } from '@/config/redux/hooks';
-
-import { decrement, increment } from './sampleSlice';
+import { decrement, increment } from '@/features/sample/sample.slice';
+import { useAppDispatch } from '@/lib/redux/hooks';
 
 export const SampleButton = () => {
-  console.log('SampleButton render');
-
   const dispatch = useAppDispatch();
 
   const handleClickIncrement = () => dispatch(increment());
   const handleClickDecrement = () => dispatch(decrement());
 
   return (
-    <Stack>
+    <Stack direction="row" spacing={2}>
       <Button variant="contained" onClick={handleClickIncrement}>
         +
       </Button>

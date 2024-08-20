@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { sampleReducer } from '@/features/sample/sample-redux';
+import { sampleReducer } from '@/features/sample/sample.slice';
 import { pokemonApi } from '@/lib/redux/apis';
 
 export const makeStore = () => {

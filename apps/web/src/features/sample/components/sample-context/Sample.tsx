@@ -1,4 +1,5 @@
-import { SampleContextProvider } from './Sample.context';
+import { SampleContextProvider } from '@/features/sample/Sample.context';
+
 import { SampleButton } from './SampleButton';
 import { SampleCounter } from './SampleCounter';
 
