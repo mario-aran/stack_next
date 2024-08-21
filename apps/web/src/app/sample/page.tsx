@@ -1,7 +1,11 @@
 import Stack from '@mui/material/Stack';
 import Link from 'next/link';
 
-import { SampleContext, SampleRedux } from '@/features/sample/components';
+import {
+  PokemonMaster,
+  SampleContext,
+  SampleRedux,
+} from '@/features/sample/components';
 
 interface PropsType {
   searchParams?: { [key: string]: string };
@@ -11,20 +15,35 @@ const CURRENT_PATH = '/sample';
 
 const MODES = {
   REDUX: 'redux',
+  POKEMON: 'pokemon',
 } as const;
 
 export default function Page({ searchParams }: PropsType) {
-  const condition = searchParams?.mode === MODES.REDUX;
+  const getComponent = () => {
+    switch (searchParams?.mode) {
+      case MODES.REDUX:
+        return <SampleRedux />;
+
+      case MODES.POKEMON:
+        return <PokemonMaster />;
+
+      default:
+        return <SampleContext />;
+    }
+  };
 
   return (
     <>
       <Stack direction="row" spacing={1}>
-        <Link href={CURRENT_PATH}>context </Link>
+        <Link href={CURRENT_PATH}>Context </Link>
         <Link href={{ pathname: CURRENT_PATH, query: { mode: MODES.REDUX } }}>
-          redux
+          Redux
+        </Link>
+        <Link href={{ pathname: CURRENT_PATH, query: { mode: MODES.POKEMON } }}>
+          Pokemon
         </Link>
       </Stack>
-      <main>{condition ? <SampleRedux /> : <SampleContext />}</main>
+      <main>{getComponent()}</main>
     </>
   );
 }
