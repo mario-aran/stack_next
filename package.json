@@ -1,5 +1,6 @@
 {
-  "name": "poc",
+  "name": "stack_next",
+  "license": "MIT",
   "packageManager": "pnpm@9.6.0",
   "scripts": {
     "prepare": "husky",
