@@ -1,7 +1,7 @@
 {
   "name": "stack_next",
   "license": "MIT",
-  "packageManager": "pnpm@9.6.0",
+  "packageManager": "pnpm@9.13.2",
   "scripts": {
     "prepare": "husky",
     "clean:folders": "find . \\( -path './.husky/_' -o -name '.turbo' -o -name 'node_modules' -o -name 'dist' -o -name '.next' -o -name '.swc' \\) -exec rm -rf {} +",
@@ -13,11 +13,11 @@
     "dev": "turbo dev"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.4.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "husky": "^9.1.4",
-    "lint-staged": "^15.2.9",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
-    "turbo": "^2.0.14"
+    "turbo": "^2.3.0"
   }
 }
