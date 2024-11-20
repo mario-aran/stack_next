@@ -18,9 +18,11 @@ const MODES = {
   POKEMON: 'pokemon',
 } as const;
 
-export default function Page({ searchParams }: PropsType) {
+export default async function Page({ searchParams }: PropsType) {
+  const { mode } = (await searchParams) || {};
+
   const getComponent = () => {
-    switch (searchParams?.mode) {
+    switch (mode) {
       case MODES.REDUX:
         return <SampleRedux />;
 
